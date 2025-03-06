@@ -56,7 +56,7 @@ static const tL2CAP_APPL_INFO dyn_info = {
 
 static tL2CAP_CFG_INFO ps3_cfg_info;
 
-bool is_connected = false;
+bool is_ps3_connected = false;
 
 
 /********************************************************************************/
@@ -236,9 +236,9 @@ void ps3_l2cap_config_cfm_cback(uint16_t l2cap_cid, tL2CAP_CFG_INFO *p_cfg)
 
     /* The PS3 controller is connected after    */
     /* receiving the second config confirmation */
-    is_connected = l2cap_cid == PS3_L2CAP_ID_HIDI;
+    is_ps3_connected = l2cap_cid == PS3_L2CAP_ID_HIDI;
 
-    if(is_connected){
+    if(is_ps3_connected){
         ps3Enable();
     }
 }
